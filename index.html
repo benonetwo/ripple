@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Water Ripples Example</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- jQuery Ripples JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+    <main>
+        <article>
+            <div class="full-landing-image"></div>
+        </article>
+    </main>
+
+    <!-- Ripple sound -->
+    <audio id="ripple-sound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+
+    <script>
+        $(document).ready(function() {
+            $(".full-landing-image").ripples({
+                resolution: 200,
+                perturbance: 0.004,
+                dropRadius: 20 // Radius of the ripple
+            }).on('ripples:in', function(event, x, y, radius, perturbance) {
+                // Play ripple sound on ripple effect
+                var rippleSound = document.getElementById('ripple-sound');
+                rippleSound.currentTime = 0; // Restart sound
+                rippleSound.play();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* Ensure the body and html cover the entire viewport */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Full-Screen Image */
+.full-landing-image {
+    position: fixed; /* Ensure it covers the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../pond.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Place behind other content */
+}
+
+/* Ensure other elements are positioned correctly */
+main, article {
+    position: relative;
+    z-index: 1; /* Ensure content appears above the background */
+}
